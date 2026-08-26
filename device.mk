@@ -40,3 +40,8 @@ PRODUCT_COPY_FILES += \
 
 # Thermal
 PRODUCT_COPY_FILES += $(foreach f,$(wildcard $(LOCAL_PATH)/thermal/*.conf),$(f):$(TARGET_COPY_OUT_VENDOR)/etc/$(notdir $(f)))
+
+# Biometrics Face Unlock
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
+
