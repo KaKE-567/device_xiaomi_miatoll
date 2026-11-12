@@ -14,3 +14,6 @@ PRODUCT_MODEL := SM6250
 PRODUCT_MANUFACTURER := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+# Debloat esports: remove 10 requested apps
+PRODUCT_PACKAGES := $(filter-out AudioFX ExactCalculator Calculator Calendar CalendarApp Etar Camera2 Snap DeskClock Contacts FMRadio FM2 Messaging messaging Recorder Ymusic,$(PRODUCT_PACKAGES))
