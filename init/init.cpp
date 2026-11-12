@@ -66,10 +66,15 @@ void set_device_props(const std::string fingerprint, const std::string descripti
         set_ro_build_prop(source, "brand", brand, true);
         set_ro_build_prop(source, "device", device, true);
         set_ro_build_prop(source, "model", model, true);
+        set_ro_build_prop(source, "name", device, true);
+        set_ro_build_prop(source, "product", device, false);
     }
 
     property_override("ro.build.fingerprint", fingerprint.c_str());
     property_override("ro.build.description", description.c_str());
+    property_override("ro.build.product", device.c_str());
+    property_override("ro.product.name", device.c_str());
+    property_override("ro.product.device", device.c_str());
 }
 
 void load_device_properties() {
@@ -113,6 +118,12 @@ void load_device_properties() {
                 "Redmi/joyeuse_global/joyeuse:10/QKQ1.191215.002/V12.0.1.0.QJZMIXM:user/release-keys",
                 "joyeuse_global-user 10 QKQ1.191215.002 V12.0.1.0.QJZMIXM release-keys",
                 "Redmi", "joyeuse", "Redmi Note 9 Pro");
+    } else {
+        // Fallback for curtana
+        set_device_props(
+                "Redmi/curtana_global/curtana:10/QKQ1.191215.002/V12.0.1.0.QJWMIXM:user/release-keys",
+                "curtana_global-user 10 QKQ1.191215.002 V12.0.1.0.QJWMIXM release-keys",
+                "Redmi", "curtana", "Redmi Note 9S");
     }
 }
 
