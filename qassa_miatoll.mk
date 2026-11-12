@@ -7,14 +7,16 @@
 $(call inherit-product, device/xiaomi/miatoll/device.mk)
 
 # Inherit some common QASSA stuff.
+TARGET_EXCLUDE_MATLOG := true
 $(call inherit-product, vendor/qassa/config/common_full_phone.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_GAPPS_ARCH := arm64
 TARGET_INCLUDE_STOCK_ARCORE := true
 USE_PIXEL_CHARGING := true
 QTI_OPTOUT := true
-QASSA_BUILD_TYPE ?= byNgantu
+QASSA_BUILD_TYPE ?= byKaKE
 TARGET_APERTURE_OPTOUT := true
+TARGET_EXCLUDE_MATLOG := true
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := qassa_miatoll
